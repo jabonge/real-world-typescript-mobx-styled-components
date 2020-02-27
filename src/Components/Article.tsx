@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Article } from '../types/article';
 import { brandColor } from '../styles/variable';
+import useStores from '../hooks/useStores';
 
 const ArticleContainer = styled.div`
   width: 850px;
@@ -68,6 +69,7 @@ type IProps = {
 
 export default function ArticleComponent(props: IProps) {
   const { article } = props;
+  const { ModalStore } = useStores();
   return (
     <ArticleContainer>
       <TopRow>
@@ -84,7 +86,9 @@ export default function ArticleComponent(props: IProps) {
           </div>
         </div>
 
-        <button>좋아요 {article.favoritesCount}</button>
+        <button onClick={ModalStore.openModal}>
+          좋아요 {article.favoritesCount}
+        </button>
       </TopRow>
       <div className="body">
         <h1>{article.title}</h1>

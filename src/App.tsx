@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from './page/Login';
 import Register from './page/Register';
 import Home from './page/Home';
+import CustomModal from './common/Modal';
 
 // function useUserStore() {
 //   const { UserStore } = useStores();
@@ -21,6 +22,7 @@ const App: FC = () => {
   return (
     <>
       <GlobalStyles />
+      <CustomModal />
       <Header />
       <Switch>
         <Route path="/login" component={Login} />
